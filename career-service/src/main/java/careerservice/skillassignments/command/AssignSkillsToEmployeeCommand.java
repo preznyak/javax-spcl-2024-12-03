@@ -1,4 +1,6 @@
-package careerservice.skill.command;
+package careerservice.skillassignments.command;
+
+import careerservice.skillassignments.model.LeveledSkill;
 
 import java.util.List;
 
