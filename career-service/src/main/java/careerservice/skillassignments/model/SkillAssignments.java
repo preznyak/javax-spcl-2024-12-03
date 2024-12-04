@@ -61,4 +61,8 @@ public class SkillAssignments {
         }
     }
 
+    public void removeSkill(int skillId) {
+        leveledSkills.removeIf(skill -> skill.skillId() == skillId);
+    }
+
 }
