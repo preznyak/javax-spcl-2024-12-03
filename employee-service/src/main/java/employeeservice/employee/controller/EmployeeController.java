@@ -22,7 +22,8 @@ public class EmployeeController {
     private EmployeeService employeeService;
 
     @GetMapping
-    public List<EmployeeDto> employees() {
+    public List<EmployeeDto> employees(@RequestHeader HttpHeaders headers) {
+        log.info("Headers: {}", headers);
         return employeeService.listEmployees();
     }
 

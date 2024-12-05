@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: mentoring-gateway
+  cloud:
+    gateway:
+      filter:
+        local-response-cache:
+          enabled: true
+      routes:
+        - id: employees
+          uri: http://localhost:8081
+          predicates:
+            - Path=/api/employees/**
+          filters:
+            - AddRequestHeader=X-Request-Gateway, SpringCloudGateway
+            - name: CircuitBreaker
+              args:
+                name: employeeCircuitBreaker
+                fallbackUri: forward:/api/dummy-employees
+            - LocalResponseCache=30m,500MB
+server:
+  port: 8085
