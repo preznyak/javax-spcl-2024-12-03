@@ -1,0 +1,28 @@
+type CourseData {
+    id: ID!
+    name: String!
+    limit: Int
+    courseDetails: CourseDetailsData
+}
+
+type CourseDetailsData {
+    description: String
+    syllabus: String
+    enrolledEmployees: [EmployeeData]!
+    completedEmployees: [EmployeeData]!
+}
+
+type EmployeeData {
+    id: ID!
+    name: String!
+    role: RoleData
+}
+
+type RoleData {
+    id: ID!
+    name: String!
+}
+
+type Query {
+    courses: [CourseData]!
+}
