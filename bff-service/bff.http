@@ -1,0 +1,17 @@
+GRAPHQL http://localhost:8088/graphql
+
+query MyQuery {
+  courses {
+    name
+    id
+    limit
+    courseDetails {
+      enrolledEmployees {
+        name
+        role {
+          name
+        }
+      }
+    }
+  }
+}
