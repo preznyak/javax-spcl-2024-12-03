@@ -1,0 +1,4 @@
+### Direktben az EmployeeService
+GET http://localhost:8081/api/employees
+### Gateway-en keresztül
+GET http://localhost:8085/api/employees
