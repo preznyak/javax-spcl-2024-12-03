@@ -38,6 +38,7 @@ public class EnrollmentService {
         }
     }
 
+    @Transactional
     public void complete(long employeeId, long courseId) {
         Enrollment enrollment = enrollmentRepository.findByCourseIdAndEmployeeId(courseId, employeeId)
                 .orElseThrow(() -> new IllegalArgumentException("Enrollment not found employee %d course %d".formatted(
@@ -45,6 +46,7 @@ public class EnrollmentService {
         enrollment.complete();
     }
 
+    @Transactional
     public void fail(long employeeId, long courseId) {
         Enrollment enrollment = enrollmentRepository.findByCourseIdAndEmployeeId(courseId, employeeId)
                 .orElseThrow(() -> new IllegalArgumentException("Enrollment not found employee %d course %d".formatted(
