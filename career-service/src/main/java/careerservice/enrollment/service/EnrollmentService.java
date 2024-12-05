@@ -1,5 +1,6 @@
 package careerservice.enrollment.service;
 
+import careerservice.enrollment.model.EnrollmentStatus;
 import careerservice.enrollment.view.EnrollmentView;
 import careerservice.enrollment.model.EnrollCommand;
 import careerservice.enrollment.model.Enrollment;
@@ -37,4 +38,17 @@ public class EnrollmentService {
         }
     }
 
+    public void complete(long employeeId, long courseId) {
+        Enrollment enrollment = enrollmentRepository.findByCourseIdAndEmployeeId(courseId, employeeId)
+                .orElseThrow(() -> new IllegalArgumentException("Enrollment not found employee %d course %d".formatted(
+                        employeeId, courseId)));
+        enrollment.complete();
+    }
+
+    public void fail(long employeeId, long courseId) {
+        Enrollment enrollment = enrollmentRepository.findByCourseIdAndEmployeeId(courseId, employeeId)
+                .orElseThrow(() -> new IllegalArgumentException("Enrollment not found employee %d course %d".formatted(
+                        employeeId, courseId)));
+        enrollment.fail();
+    }
 }
