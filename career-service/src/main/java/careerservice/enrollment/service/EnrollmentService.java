@@ -42,7 +42,10 @@ public class EnrollmentService {
     public void complete(long employeeId, long courseId) {
         Enrollment enrollment = enrollmentRepository.findByCourseIdAndEmployeeId(courseId, employeeId)
                 .orElseThrow(() -> new IllegalArgumentException("Enrollment not found employee %d course %d".formatted(
-                        employeeId, courseId)));
+                        employeeId, courseId
+                )));
+//        enrollment.setStatus(EnrollmentStatus.COMPLETED);
+        // enrollment.setStatus(enrollment.getStatus().complete());
         enrollment.complete();
     }
 
@@ -50,7 +53,8 @@ public class EnrollmentService {
     public void fail(long employeeId, long courseId) {
         Enrollment enrollment = enrollmentRepository.findByCourseIdAndEmployeeId(courseId, employeeId)
                 .orElseThrow(() -> new IllegalArgumentException("Enrollment not found employee %d course %d".formatted(
-                        employeeId, courseId)));
+                        employeeId, courseId
+                )));
         enrollment.fail();
     }
 }

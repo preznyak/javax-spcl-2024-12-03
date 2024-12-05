@@ -1,5 +1,6 @@
 package courseservice.course.service;
 
+import courseservice.course.CourseHasBeenCreatedEvent;
 import courseservice.course.dto.*;
 import courseservice.course.model.Course;
 import lombok.AllArgsConstructor;

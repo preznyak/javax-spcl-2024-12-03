@@ -27,7 +27,7 @@ public class Enrollment {
         Enrollment enrollment = new Enrollment();
         enrollment.employeeId = command.employeeId();
         enrollment.courseId = command.courseId();
-        enrollment.status = EnrollmentStatus.STARTED;
+        enrollment.status =  EnrollmentStatus.STARTED;
         return enrollment;
     }
 
@@ -38,5 +38,4 @@ public class Enrollment {
     public void fail() {
         status = status.failedLimitReached();
     }
-
 }

@@ -15,5 +15,4 @@ public class CourseServiceGateway {
     public void handleEvent(CourseHasBeenCreatedEvent event) {
         streamBridge.send("course-events-topic", event);
     }
-
 }

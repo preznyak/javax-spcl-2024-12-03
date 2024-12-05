@@ -29,4 +29,5 @@ public class SkillController {
         skillService.deleteSkillById(id);
     }
 
+
 }

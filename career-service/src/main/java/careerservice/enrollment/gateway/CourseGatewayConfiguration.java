@@ -11,10 +11,10 @@ import java.util.function.Consumer;
 @AllArgsConstructor
 public class CourseGatewayConfiguration {
 
-    private ApplicationEventPublisher eventPublisher;
+    private ApplicationEventPublisher applicationEventPublisher;
 
     @Bean
     public Consumer<EnrollResponse> enrollResponseConsumer() {
-        return eventPublisher::publishEvent;
+        return applicationEventPublisher::publishEvent;
     }
 }

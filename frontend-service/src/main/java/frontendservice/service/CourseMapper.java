@@ -2,7 +2,10 @@ package frontendservice.service;
 
 import frontendservice.coursegateway.CourseResource;
 import frontendservice.employeegateway.EmployeeDto;
-import org.mapstruct.*;
+import org.mapstruct.DecoratedWith;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import org.mapstruct.MappingConstants;
 
 import java.util.List;
 

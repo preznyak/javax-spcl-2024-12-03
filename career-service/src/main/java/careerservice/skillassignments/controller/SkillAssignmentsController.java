@@ -22,4 +22,5 @@ public class SkillAssignmentsController {
     public EmployeeSkillsView getAssignedSkills(@RequestParam int employeeId) {
         return skillAssignmentsService.getSkillAssignments(employeeId);
     }
+
 }

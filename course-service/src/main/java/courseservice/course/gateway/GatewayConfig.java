@@ -18,9 +18,9 @@ public class GatewayConfig {
     @Bean
     public Function<EnrollCommandRequest, EnrollResponse> enroll() {
         return request -> {
-            EnrollmentResult enrollmentResult = courseService.enroll(new EnrollCommand(request.courseId(),request.employeeId()));
+            EnrollmentResult result = courseService.enroll(new EnrollCommand(request.courseId(), request.employeeId()));
             EnrollResponse.EnrollResult enrollResult =
-                    switch (enrollmentResult.getSuccess()) {
+                    switch (result.getSuccess()) {
                         case SUCCESSFUL -> EnrollResponse.EnrollResult.OK;
                         case UNSUCCESSFUL -> EnrollResponse.EnrollResult.FULL;
                     };

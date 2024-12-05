@@ -1,6 +1,7 @@
 package careerservice.enrollment.model;
 
 public enum EnrollmentStatus {
+
     STARTED {
         @Override
         public EnrollmentStatus complete() {
@@ -20,5 +21,4 @@ public enum EnrollmentStatus {
     public EnrollmentStatus failedLimitReached() {
         throw new IllegalStateException("Cannot fail Enrollment Status");
     }
-
 }

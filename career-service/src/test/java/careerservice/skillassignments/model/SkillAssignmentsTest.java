@@ -1,10 +1,10 @@
 package careerservice.skillassignments.model;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.assertThat;
 class SkillAssignmentsTest {
 
     @Test
@@ -15,9 +15,11 @@ class SkillAssignmentsTest {
 
         assignments.learn(List.of(new LeveledSkill(1, 4)));
 
-        Assertions.assertThat(assignments.getLeveledSkills()).containsExactlyInAnyOrder(
+        assertThat(assignments.getLeveledSkills())
+                .containsExactlyInAnyOrder(
                 new LeveledSkill(1, 4),
-                new LeveledSkill(2, 4)
-        );
+                new LeveledSkill(2, 4));
+
     }
+  
 }

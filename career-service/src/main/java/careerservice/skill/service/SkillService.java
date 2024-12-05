@@ -5,10 +5,10 @@ import careerservice.skill.SkillServicePort;
 import careerservice.skill.command.CreateSkillCommand;
 import careerservice.skill.model.Skill;
 import careerservice.skill.view.SkillView;
-import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 

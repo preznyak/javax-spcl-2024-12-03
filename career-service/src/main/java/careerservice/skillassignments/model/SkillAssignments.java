@@ -33,7 +33,7 @@ public class SkillAssignments {
             throw new IllegalArgumentException("employeeId must be greater than 0");
         }
         if (leveledSkills == null || leveledSkills.isEmpty()) {
-            throw new IllegalArgumentException("Can not hire employee without skills.");
+            throw new IllegalArgumentException("Can not hire employee without skills");
         }
         this.employeeId = employeeId;
         this.leveledSkills = leveledSkills;
@@ -44,17 +44,17 @@ public class SkillAssignments {
     }
 
     public void learn(List<LeveledSkill> learnedSkills) {
-        Map<Long, LeveledSkill> existingSkillsById = leveledSkills
-                .stream().collect(Collectors.toMap(
-                        LeveledSkill::skillId,
-                        Function.identity()
-                ));
+        Map<Long, LeveledSkill> existingSkillsById = leveledSkills.stream().collect(Collectors.toMap(
+                LeveledSkill::skillId,
+                Function.identity()
+        ));
 
         for (LeveledSkill learningSkill : learnedSkills) {
-            var existingSkill = existingSkillsById.get(learningSkill.skillId());
+            LeveledSkill existingSkill = existingSkillsById.get(learningSkill.skillId());
             if (existingSkill == null) {
                 leveledSkills.add(learningSkill);
-            } else {
+            }
+            else {
                 leveledSkills.remove(existingSkill);
                 leveledSkills.add(existingSkill.levelUp(learningSkill.level()));
             }
@@ -64,5 +64,4 @@ public class SkillAssignments {
     public void removeSkill(int skillId) {
         leveledSkills.removeIf(skill -> skill.skillId() == skillId);
     }
-
 }

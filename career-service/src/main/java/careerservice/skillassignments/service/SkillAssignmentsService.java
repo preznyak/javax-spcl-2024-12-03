@@ -3,14 +3,15 @@ package careerservice.skillassignments.service;
 import careerservice.NotFoundException;
 import careerservice.skill.SkillHasBeenDeleted;
 import careerservice.skill.SkillServicePort;
+import careerservice.skill.service.SkillService;
 import careerservice.skillassignments.command.AssignSkillsToEmployeeCommand;
 import careerservice.skillassignments.model.LeveledSkill;
 import careerservice.skillassignments.model.SkillAssignments;
 import careerservice.skillassignments.view.EmployeeSkillsView;
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -38,7 +39,8 @@ public class SkillAssignmentsService {
             SkillAssignments hired = SkillAssignments.hire(command.employeeId(), command.skills());
             skillAssignmentsRepository.save(hired);
             return new EmployeeSkillsView(hired.getEmployeeId(), hired.getLeveledSkills());
-        } else {
+        }
+        else {
             skillAssignments.get().learn(command.skills());
             return new EmployeeSkillsView(skillAssignments.get().getEmployeeId(), skillAssignments.get().getLeveledSkills());
         }
@@ -55,4 +57,6 @@ public class SkillAssignmentsService {
     public void handleSkillHasBeenDeleted(SkillHasBeenDeleted skillHasBeenDeleted) {
         // TODO
     }
+
+
 }

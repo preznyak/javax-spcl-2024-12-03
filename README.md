@@ -22,3 +22,7 @@ docker run -d -e POSTGRES_DB=course -e POSTGRES_USER=course -e POSTGRES_PASSWORD
 docker run -d -p 27017:27017 --name course-mongo mongo
 ```
 
+```sh
+cd kafka
+docker compose up -d
+```

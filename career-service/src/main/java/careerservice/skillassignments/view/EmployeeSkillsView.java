@@ -1,5 +1,6 @@
 package careerservice.skillassignments.view;
 
+
 import careerservice.skillassignments.model.LeveledSkill;
 
 import java.util.List;

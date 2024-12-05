@@ -18,9 +18,9 @@ public class EnrollSaga {
     private EnrollmentService enrollmentService;
 
     public EnrollmentView enroll(EnrollCommand enrollCommand) {
-        EnrollmentView enrollmentView = enrollmentService.enrollToCourse(enrollCommand);
+        EnrollmentView view = enrollmentService.enrollToCourse(enrollCommand);
         courseGateway.sendEnrollCommandToCourseService(enrollCommand);
-        return enrollmentView;
+        return view;
     }
 
     @EventListener
@@ -29,6 +29,5 @@ public class EnrollSaga {
             case OK -> enrollmentService.complete(enrollResponse.employeeId(), enrollResponse.courseId());
             case FULL -> enrollmentService.fail(enrollResponse.employeeId(), enrollResponse.courseId());
         }
-
     }
 }

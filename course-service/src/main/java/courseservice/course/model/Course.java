@@ -4,6 +4,7 @@ import courseservice.course.dto.CreateCourseCommand;
 import courseservice.course.dto.EnrollCommand;
 import courseservice.course.dto.EnrollmentResult;
 import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

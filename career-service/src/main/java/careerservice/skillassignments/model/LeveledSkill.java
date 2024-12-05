@@ -6,10 +6,12 @@ import jakarta.persistence.Embeddable;
 public record LeveledSkill(long skillId, int level) {
 
     public LeveledSkill levelUp(int level) {
-        if (level > this.level) {
+        if (level > this.level()) {
             return new LeveledSkill(this.skillId, level);
-        } else {
+        }
+        else {
             return this;
         }
     }
+
 }

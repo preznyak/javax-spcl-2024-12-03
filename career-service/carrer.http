@@ -57,12 +57,12 @@ POST http://localhost:8084/api/enrollments
 Content-Type: application/json
 
 {
-  "employeeId": 1,
-  "courseId": 2
+  "employeeId": 6,
+  "courseId": 1
 }
 
 ### Get enrollments to employee
-GET http://localhost:8084/api/enrollments?employeeId=1
+GET http://localhost:8084/api/enrollments?employeeId=5
 
 ### Delete skill
 DELETE http://localhost:8084/api/skills/2

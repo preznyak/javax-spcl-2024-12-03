@@ -13,7 +13,8 @@ public class DummyEmployeesController {
 
     @GetMapping
     public Flux<Employee> getEmployees() {
-        return Flux.fromIterable(List.of(
+        return Flux.fromIterable(
+                List.of(
                 new Employee(1L, "Dummy Joe"),
                 new Employee(2L, "Dummy Jack")
         ));

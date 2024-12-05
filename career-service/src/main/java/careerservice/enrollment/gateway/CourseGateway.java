@@ -13,8 +13,8 @@ public class CourseGateway {
 
     private final StreamBridge streamBridge;
 
-    public void sendEnrollCommandToCourseService(EnrollCommand enrollCommand){
-        log.info("Sending enroll command to course service.");
-        streamBridge.send("course-reply-topic", enrollCommand);
+    public void sendEnrollCommandToCourseService(EnrollCommand enrollCommand) {
+        log.info("Sending enroll command to course service");
+        streamBridge.send("course-command-topic", enrollCommand);
     }
 }
