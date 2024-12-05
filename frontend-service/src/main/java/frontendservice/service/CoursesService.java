@@ -29,6 +29,6 @@ public class CoursesService {
         // Employees Service - alkalmazottak - employee name
         List<EmployeeDto> employees = employeesService.listEmployees();
 
-        return courseMapper.toComposite(course);
+        return courseMapper.toComposite(course, employees);
     }
 }

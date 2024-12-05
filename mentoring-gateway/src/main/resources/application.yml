@@ -18,5 +18,9 @@ spring:
                 name: employeeCircuitBreaker
                 fallbackUri: forward:/api/dummy-employees
             - LocalResponseCache=30m,500MB
+        - id: courses
+          uri: http://localhost:8083
+          predicates:
+            - Path=/api/courses/**
 server:
   port: 8085

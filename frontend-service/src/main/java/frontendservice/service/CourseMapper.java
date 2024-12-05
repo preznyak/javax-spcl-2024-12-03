@@ -1,15 +1,17 @@
 package frontendservice.service;
 
 import frontendservice.coursegateway.CourseResource;
-import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
-import org.mapstruct.MappingConstants;
+import frontendservice.employeegateway.EmployeeDto;
+import org.mapstruct.*;
+
+import java.util.List;
 
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
+@DecoratedWith(CourseMapperDecorator.class)
 public interface CourseMapper {
 
     @Mapping(target = "enrolledEmployees", ignore = true)
     @Mapping(target = "completedEmployees", ignore = true)
-    CompositeCourseResource toComposite(CourseResource course);
+    CompositeCourseResource toComposite(CourseResource course, List<EmployeeDto> employees);
 
 }
